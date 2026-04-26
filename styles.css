@@ -630,16 +630,6 @@ a {
   line-height: 1.5;
 }
 
-.proj-tldr-tag {
-  display: inline-block;
-  font-family: "JetBrains Mono", ui-monospace, monospace;
-  font-size: 0.7rem;
-  text-transform: uppercase;
-  letter-spacing: 0.18em;
-  color: var(--accent);
-  margin-bottom: 0.3rem;
-}
-
 .proj-tldr p em {
   color: var(--accent);
   font-style: italic;
