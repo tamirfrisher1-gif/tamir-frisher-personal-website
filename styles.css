@@ -212,6 +212,14 @@ h1 {
   font-style: italic;
 }
 
+.hero-credentials {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  color: var(--ivory-mute);
+  margin-bottom: 1.2rem;
+}
+
 .hero-ctas {
   display: flex;
   flex-wrap: wrap;
