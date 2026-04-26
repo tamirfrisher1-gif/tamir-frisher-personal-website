@@ -529,7 +529,7 @@ a {
   font-family: "Antonio", "Inter", sans-serif;
   font-weight: 700;
   font-size: clamp(3.4rem, 6vw, 5.4rem);
-  line-height: 0.85;
+  line-height: 0.92;
   letter-spacing: -0.012em;
   color: var(--accent);
 }
@@ -542,7 +542,7 @@ a {
 }
 
 .proj-stat-label {
-  margin-top: 0.5rem;
+  margin-top: 0.7rem;
   font-family: "JetBrains Mono", ui-monospace, monospace;
   font-size: 0.7rem;
   text-transform: uppercase;
