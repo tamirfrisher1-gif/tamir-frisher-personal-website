@@ -3,49 +3,90 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tamir Frisher | Data Science Portfolio</title>
+    <title>Tamir Frisher — Sports + Data Portfolio</title>
+    <meta
+      name="description"
+      content="Portfolio of Tamir Frisher — NBA analytics, causal inference for sports medicine, and a Telegram expense bot. B.Sc. final-year statistics student at the Hebrew University. Available for internships."
+    />
+    <meta name="author" content="Tamir Frisher" />
+    <meta name="theme-color" content="#0b1834" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Tamir Frisher — Sports + Data Portfolio" />
+    <meta
+      property="og:description"
+      content="NBA analytics, causal inference for sports medicine, and a Telegram expense bot. Built at the Hebrew University. Available for internships."
+    />
+    <meta property="og:image" content="assets/headshot.svg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Tamir Frisher — Sports + Data Portfolio" />
+    <meta
+      name="twitter:description"
+      content="NBA analytics, causal inference for sports medicine, and a Telegram expense bot."
+    />
+    <meta name="twitter:image" content="assets/headshot.svg" />
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Antonio:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <header class="hero">
-      <nav class="top-nav">
+      <nav class="top-nav" aria-label="Primary">
         <a href="#about">About</a>
-        <a href="#education">Education</a>
+        <a href="#projects">Projects</a>
         <a href="#experience">Experience</a>
         <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
         <a href="#contact">Contact</a>
       </nav>
 
       <div class="hero-content">
-        <p class="eyebrow">Statistics, Data Science and Business Student</p>
-        <h1>Tamir Frisher</h1>
-        <p class="subtitle">
-          I design data products and applied research workflows that turn messy
-          data into clear decisions.
-        </p>
-        <div class="hero-ctas">
-          <a
-            id="cv"
-            class="cta"
-            href="Tamir%20Frisher%20CV.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            >Open CV</a
-          >
-          <a class="cta cta-secondary" href="mailto:Tamiravraham.frisher@mail.huji.ac.il"
-            >Contact</a
-          >
+        <div class="hero-portrait" aria-hidden="true">
+          <img
+            src="assets/headshot.svg"
+            alt=""
+            width="220"
+            height="220"
+            loading="eager"
+            decoding="async"
+          />
         </div>
-        <p class="hero-note">
-          Available for internships · Last updated April 2026
-        </p>
+
+        <div class="hero-copy">
+          <p class="eyebrow">Statistics · Data Science · HUJI</p>
+          <h1>Tamir Frisher</h1>
+          <p class="hero-line">
+            I'm Tamir. I dig into NBA data to find decisions that
+            <em>hold up under pressure</em> — and then I prove they do.
+          </p>
+
+          <div class="hero-ctas">
+            <a
+              id="cv"
+              class="cta"
+              href="Tamir%20Frisher%20CV.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Read CV (PDF)</a
+            >
+            <a class="cta cta-ghost" href="#projects">See projects</a>
+          </div>
+
+          <ul class="scoreboard" aria-label="Highlights">
+            <li><strong>5,000+</strong><span>NBA return events</span></li>
+            <li><strong>15</strong><span>seasons analyzed</span></li>
+            <li><strong>30</strong><span>teams</span></li>
+            <li><strong>88</strong><span>GPA</span></li>
+            <li><strong>2026</strong><span>final B.Sc. semester</span></li>
+          </ul>
+
+          <p class="hero-note">
+            Available for internships · Last updated April 2026
+          </p>
+        </div>
       </div>
     </header>
 
@@ -53,121 +94,436 @@
       <nav class="sticky-nav" aria-label="Section shortcuts">
         <a href="#about">About</a>
         <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
         <a href="#contact">Contact</a>
-        <a href="#cv">CV</a>
       </nav>
 
       <section id="about" class="card">
-        <h2>Professional Summary</h2>
-        <p>
-          Passionate about explainable machine learning (XAI), statistical
-          modeling, and scalable technical development. Experienced in Python
-          and R workflows with a strong analytical mindset and leadership
-          background. Deeply interested in sports and data, with a focus on
-          turning complex datasets into practical, decision-ready insights.
-        </p>
+        <p class="section-tag">About</p>
+        <h2>From the bench to the stat sheet</h2>
+        <div class="about-essay">
+          <p>
+            I grew up tracking box scores before I tracked datasets. Somewhere
+            between scoring my own pickup games and reading injury reports, I
+            figured out that the questions I cared about — <em>does this
+            decision actually help, or does it just look like it helps?</em>
+            — were statistics questions in disguise.
+          </p>
+          <p>
+            Today I'm finishing my B.Sc. in Statistics, Data Science and
+            Business at the Hebrew University and starting an M.Sc. in Data
+            Science. I spend most of my time on causal inference for sports
+            medicine, on explainable ML, and on building small working tools
+            that put analyses in someone's hands instead of in a slide deck.
+          </p>
+          <p>
+            What I care about most: turning messy, contested data into a
+            clear call you can defend in a room full of skeptics.
+          </p>
+        </div>
+
+        <div class="currently" aria-label="What I'm doing right now">
+          <div class="currently-card">
+            <p class="currently-card-label">Building</p>
+            <p class="currently-card-text">
+              Within-player return-to-play models, plus a Telegram bot that
+              people actually keep using.
+            </p>
+          </div>
+          <div class="currently-card">
+            <p class="currently-card-label">Reading</p>
+            <p class="currently-card-text">
+              Pearl &amp; Mackenzie on causality, plus anything I can get on
+              NBA load management protocols.
+            </p>
+          </div>
+          <div class="currently-card">
+            <p class="currently-card-label">Learning</p>
+            <p class="currently-card-text">
+              Bayesian hierarchical models for small-sample sports questions,
+              and modern data tooling end-to-end.
+            </p>
+          </div>
+        </div>
       </section>
 
       <section id="education" class="card">
-        <h2>Education</h2>
+        <p class="section-tag">Education</p>
+        <h2>Hebrew University of Jerusalem</h2>
         <div class="timeline-item">
-          <h3>The Hebrew University of Jerusalem</h3>
-          <p>
-            <strong>B.Sc. in Statistics, Data Science and Business</strong>
-            (2023-2026), final semester, GPA: 88
-          </p>
-          <p>
-            <strong>M.Sc. in Data Science</strong> expected graduation: July
-            2028
-          </p>
+          <h3>B.Sc. in Statistics, Data Science and Business</h3>
+          <span>2023 – 2026 · final semester · GPA 88</span>
+        </div>
+        <div class="timeline-item">
+          <h3>M.Sc. in Data Science</h3>
+          <span
+            >Started during the final B.Sc. semester · expected July 2028</span
+          >
         </div>
       </section>
 
       <section id="experience" class="card">
-        <h2>Experience</h2>
+        <p class="section-tag">Experience</p>
+        <h2>Where I've worked</h2>
         <div class="timeline-item">
-          <h3>Strategy Analyst | Cross River</h3>
-          <span>2025-2026</span>
+          <h3>Strategy Analyst · Cross River</h3>
+          <span>2025 – 2026</span>
           <p>
             Analyzed market trends and identified growth opportunities to
             support data-backed strategic decisions.
           </p>
         </div>
         <div class="timeline-item">
-          <h3>Teaching Assistant | The Hebrew University of Jerusalem</h3>
-          <span>2025-2026</span>
+          <h3>Teaching Assistant · Hebrew University</h3>
+          <span>2025 – 2026</span>
           <p>
             Graded Foundations of Programming assignments and collaborated on
             grading standards with course staff.
           </p>
         </div>
         <div class="timeline-item">
-          <h3>Squad Commander | IDF</h3>
-          <span>2019-2021</span>
+          <h3>Squad Commander · IDF</h3>
+          <span>2019 – 2021</span>
           <p>
-            Commanded and trained a unit of 80 soldiers while managing
-            schedules, logistics, and team development.
+            Led and trained a unit of 80 soldiers; ran schedules, logistics,
+            and team development under pressure.
           </p>
         </div>
       </section>
 
       <section id="skills" class="card">
-        <h2>Skills</h2>
-        <ul class="chips">
-          <li>Python (Pandas, Scikit-learn, NumPy)</li>
-          <li>Advanced SQL (Window Functions, CTEs)</li>
-          <li>R</li>
-          <li>Java</li>
-          <li>Machine Learning</li>
-          <li>Explainable AI (SHAP, LIME, PFI)</li>
-          <li>Statistical Modeling</li>
-          <li>Data Visualization</li>
-          <li>Git and Cursor</li>
-        </ul>
+        <p class="section-tag">Skills</p>
+        <h2>What I reach for</h2>
+        <div class="skill-tier">
+          <p class="skill-tier-label">Daily drivers</p>
+          <ul class="skill-list">
+            <li>Python (Pandas, scikit-learn, NumPy)</li>
+            <li>Advanced SQL (window functions, CTEs)</li>
+            <li>R</li>
+            <li>Statistical modeling</li>
+            <li>Data visualization</li>
+          </ul>
+        </div>
+        <div class="skill-tier">
+          <p class="skill-tier-label">Have shipped with</p>
+          <ul class="skill-list">
+            <li>Telegram Bot API</li>
+            <li>PostgreSQL &amp; SQLite</li>
+            <li>Render</li>
+            <li>Git &amp; Cursor</li>
+          </ul>
+        </div>
+        <div class="skill-tier">
+          <p class="skill-tier-label">Comfortable</p>
+          <ul class="skill-list">
+            <li>Java</li>
+            <li>Explainable AI (SHAP, LIME, PFI)</li>
+            <li>Causal inference (PSM, DiD, ITT)</li>
+            <li>Machine learning</li>
+          </ul>
+        </div>
       </section>
 
       <section id="projects" class="card">
+        <p class="section-tag">Selected work</p>
         <h2>Projects</h2>
-        <article class="project-item">
-          <h3>
-            Effects of cumulative workload on player injuries (capstone summary)
-          </h3>
-          <p class="project-meta">Hebrew University</p>
-          <div class="project-grid">
-            <section class="project-block">
-              <h4>Problem</h4>
-              <p>
-                Estimate the causal effect of short-term workload buildup on
-                overuse injury risk in NBA players.
+
+        <article class="project-item" data-accent="gold">
+          <header class="proj-header">
+            <div class="proj-stat-block">
+              <p class="proj-stat">+18<span class="proj-stat-unit">pp</span></p>
+              <p class="proj-stat-label">Recurrence spread</p>
+            </div>
+            <div class="proj-title-block">
+              <h3 class="proj-title">
+                NBA return-to-play: internal load injuries and team-level
+                medical outcomes
+              </h3>
+              <p class="proj-tagline">
+                5,000+ documented returns across 15 seasons (2011–2025), focused
+                on knee, plantar and calf.
               </p>
-            </section>
-            <section class="project-block">
-              <h4>Data scope</h4>
-              <p>
-                Injury logs + advanced game/player tables, merged into injury
-                opportunities with rolling 7-day load features.
-              </p>
-            </section>
-            <section class="project-block">
-              <h4>Methods and tools</h4>
-              <p>
-                Propensity score matching, DiD, ITT with exogenous schedule
-                density, falsification on contact injuries, and double ITT
-                carryover analysis.
-              </p>
-            </section>
-            <section class="project-block">
-              <h4>Key numeric result</h4>
-              <p>
-                Dense schedule exposure increases overuse injury risk by about
-                25% per game in the treated windows.
-              </p>
-            </section>
+            </div>
+          </header>
+
+          <div class="proj-narrative">
+            <p>
+              Some teams clear injured players to play sooner than the league
+              average, and a chunk of them do it without paying a recurrence
+              price. Others bring players back fast and keep losing them to the
+              same injury. The question I cared about: is that gap real, or is
+              it severity, usage, or noise pretending to be a medical signal?
+            </p>
+            <p>
+              I split clusters of teams by their fast-return rate, then
+              stress-tested the recurrence gap with severity controls, usage
+              matching, and a within-player view. The 18-percentage-point
+              spread held up under every check that mattered. Even broadening
+              the outcome to all load injuries kept the gap statistically
+              significant — just smaller (8.5pp).
+            </p>
           </div>
-          <ul class="project-findings">
-            <li>Naive negative association flips after bias-aware design.</li>
-            <li>Signal persists under robustness checks and injury-type tests.</li>
+
+          <dl class="proj-meta-strip">
+            <div>
+              <dt>Problem</dt>
+              <dd>
+                Do fast-return teams pay a recurrence cost on internal load
+                injuries?
+              </dd>
+            </div>
+            <div>
+              <dt>Data</dt>
+              <dd>5,000+ return events · 15 seasons · 30 teams (2011–2025).</dd>
+            </div>
+            <div>
+              <dt>Methods</dt>
+              <dd>
+                Cluster comparison, within-player check, severity &amp; usage
+                matching, broad-outcome sensitivity.
+              </dd>
+            </div>
+            <div>
+              <dt>Result</dt>
+              <dd>
+                ~18pp recurrence spread (38% vs 20%, p &lt; 0.001); ~17pp
+                preserved within-player.
+              </dd>
+            </div>
+          </dl>
+
+          <aside class="proj-tldr">
+            <p class="proj-tldr-tag">TL;DR</p>
+            <p>
+              Some teams really are returning players faster <em>and</em>
+              keeping them on the floor. The difference doesn't disappear when
+              you control for who they're treating.
+            </p>
+          </aside>
+
+          <section class="interactive-matrix" id="team-matrix-app">
+            <div class="matrix-header">
+              <h4>Interactive Team Matrix</h4>
+              <p>
+                Explore team-level return-speed vs re-injury risk using
+                sensitive load injuries only (knee and plantar/calf).
+              </p>
+            </div>
+
+            <div class="matrix-controls">
+              <div
+                class="matrix-filters"
+                role="group"
+                aria-label="Filter teams by profile"
+              >
+                <button class="matrix-filter active" data-profile="ALL">
+                  All
+                </button>
+                <button class="matrix-filter" data-profile="SMART_FAST">
+                  Smart &amp; Fast
+                </button>
+                <button class="matrix-filter" data-profile="RECKLESS">
+                  Reckless
+                </button>
+                <button class="matrix-filter" data-profile="CONSERVATIVE">
+                  Conservative
+                </button>
+                <button class="matrix-filter" data-profile="INEFFECTIVE">
+                  Ineffective
+                </button>
+              </div>
+              <label class="matrix-search-label">
+                Team:
+                <input
+                  id="matrixTeamSearch"
+                  type="text"
+                  maxlength="3"
+                  placeholder="GSW"
+                  aria-label="Search team abbreviation"
+                />
+              </label>
+            </div>
+
+            <div class="matrix-layout">
+              <div class="matrix-canvas-wrap">
+                <svg
+                  id="teamMatrixSvg"
+                  viewBox="0 0 820 460"
+                  role="img"
+                  aria-label="Interactive NBA team matrix chart"
+                ></svg>
+                <div
+                  id="teamMatrixTooltip"
+                  class="matrix-tooltip"
+                  aria-hidden="true"
+                ></div>
+              </div>
+              <aside class="matrix-sidepanel" id="matrixSidepanel">
+                <h5>Selected team</h5>
+                <p class="matrix-side-hint">
+                  Click a team in the chart to pin details.
+                </p>
+                <dl class="matrix-metrics">
+                  <div><dt>Team</dt><dd id="matrixTeam">-</dd></div>
+                  <div><dt>Profile</dt><dd id="matrixProfile">-</dd></div>
+                  <div>
+                    <dt>Fast return rate (Q1)</dt>
+                    <dd id="matrixFast">-</dd>
+                  </div>
+                  <div><dt>Re-injury rate</dt><dd id="matrixReinj">-</dd></div>
+                  <div><dt>Safety rate</dt><dd id="matrixSafety">-</dd></div>
+                  <div><dt>Sample size</dt><dd id="matrixN">-</dd></div>
+                </dl>
+              </aside>
+            </div>
+          </section>
+
+          <section class="chart-gallery" id="chart-gallery">
+            <div class="gallery-header">
+              <h4>Evidence charts</h4>
+              <p>
+                Browse the supporting analyses from the return-to-play
+                project.
+              </p>
+            </div>
+            <div class="gallery-stage">
+              <button
+                class="gallery-nav"
+                id="galleryPrev"
+                aria-label="Previous chart"
+              >
+                &#8592;
+              </button>
+              <figure class="gallery-figure">
+                <img
+                  id="galleryImage"
+                  src="chart31_iv_standings.png"
+                  alt="Standings IV check"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <figcaption id="galleryCaption"></figcaption>
+              </figure>
+              <button
+                class="gallery-nav"
+                id="galleryNext"
+                aria-label="Next chart"
+              >
+                &#8594;
+              </button>
+            </div>
+            <p class="gallery-help">
+              Tip: click the main chart to open full-screen view.
+            </p>
+            <div
+              class="gallery-thumbs"
+              id="galleryThumbs"
+              aria-label="Chart thumbnails"
+            ></div>
+          </section>
+
+          <ul class="chips project-tags">
+            <li>Sports medicine analytics</li>
+            <li>Survival-style return metrics</li>
+            <li>Within-player inference</li>
+            <li>Robustness checks</li>
           </ul>
+          <p class="project-links">
+            <a
+              id="openChartLink"
+              class="project-doc-link"
+              href="chart31_iv_standings.png"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Open chart</a
+            >
+          </p>
+        </article>
+
+        <article class="project-item" data-accent="court-orange">
+          <header class="proj-header">
+            <div class="proj-stat-block">
+              <p class="proj-stat">+25<span class="proj-stat-unit">%</span></p>
+              <p class="proj-stat-label">
+                Per-game injury risk in dense windows
+              </p>
+            </div>
+            <div class="proj-title-block">
+              <h3 class="proj-title">
+                Effects of cumulative workload on player injuries
+              </h3>
+              <p class="proj-tagline">
+                Capstone — Hebrew University. A causal estimate of short-term
+                workload buildup on overuse injury risk.
+              </p>
+            </div>
+          </header>
+
+          <div class="proj-narrative">
+            <p>
+              The naive numbers say players who run more get hurt less. That's
+              because healthier players run more — a textbook selection
+              problem. The interesting question is: <em>conditional on being
+              available to play</em>, does a denser recent schedule actually
+              push overuse injury risk up?
+            </p>
+            <p>
+              I built injury-opportunity windows from the league's injury
+              logs, joined them to advanced player and game tables, and ran a
+              propensity-score match plus difference-in-differences. To break
+              the remaining selection, I used schedule density as an
+              instrument (ITT), then stress-tested with a falsification on
+              contact injuries and a double-ITT carryover analysis.
+            </p>
+            <p>
+              The signal didn't blink. Dense exposure raises overuse injury
+              risk by ~25% per game in treated windows, and the contact-injury
+              falsification stays flat — exactly what you want to see if the
+              mechanism is workload, not bad luck.
+            </p>
+          </div>
+
+          <dl class="proj-meta-strip">
+            <div>
+              <dt>Problem</dt>
+              <dd>
+                Causal effect of cumulative workload on overuse injury risk.
+              </dd>
+            </div>
+            <div>
+              <dt>Data</dt>
+              <dd>
+                Injury logs joined to advanced game/player tables; rolling
+                7-day load features.
+              </dd>
+            </div>
+            <div>
+              <dt>Methods</dt>
+              <dd>
+                PSM, DiD, ITT (schedule density), contact-injury
+                falsification, double-ITT carryover.
+              </dd>
+            </div>
+            <div>
+              <dt>Result</dt>
+              <dd>
+                ~25% per-game risk increase in dense windows; falsification
+                stays flat.
+              </dd>
+            </div>
+          </dl>
+
+          <aside class="proj-tldr">
+            <p class="proj-tldr-tag">TL;DR</p>
+            <p>
+              Naive correlations flip once you separate <em>"playing because
+              healthy"</em> from <em>"playing because the schedule forces
+              it."</em> The real signal is the second one — and it's
+              expensive.
+            </p>
+          </aside>
+
           <p class="project-meta" lang="he" dir="rtl">
             פרויקט מסכם: השפעות עומס מצטבר על פציעות שחקנים
           </p>
@@ -189,51 +545,73 @@
           </p>
         </article>
 
-        <article class="project-item">
-          <h3>Telegram expense tracking bot</h3>
-          <p class="project-meta">
-            <a
-              class="project-doc-link"
-              href="https://github.com/tamirfrisher1-gif/telegram-expense-bot"
-              target="_blank"
-              rel="noopener noreferrer"
-              >github.com/tamirfrisher1-gif/telegram-expense-bot</a
-            >
-          </p>
-          <div class="project-grid">
-            <section class="project-block">
-              <h4>Problem</h4>
-              <p>
-                Replace manual expense logging with a lightweight chat-first
-                workflow that users actually keep using.
+        <article class="project-item" data-accent="teal">
+          <header class="proj-header">
+            <div class="proj-stat-block">
+              <p class="proj-stat">5</p>
+              <p class="proj-stat-label">Bot flows shipped</p>
+            </div>
+            <div class="proj-title-block">
+              <h3 class="proj-title">Telegram expense tracking bot</h3>
+              <p class="proj-tagline">
+                A chat-first replacement for the spreadsheet nobody actually
+                opens.
               </p>
-            </section>
-            <section class="project-block">
-              <h4>Data scope</h4>
-              <p>
-                User-level transaction entries by date and category, persisted
-                either locally or in managed cloud storage.
-              </p>
-            </section>
-            <section class="project-block">
-              <h4>Methods and tools</h4>
-              <p>
-                Python bot flows on Telegram API, SQLite and PostgreSQL storage
-                mode, inline command UX, and Render worker blueprint.
-              </p>
-            </section>
-            <section class="project-block">
-              <h4>Key numeric result</h4>
-              <p>
-                Monthly category pie + month-over-month compare make spending
-                trends visible in one command.
-              </p>
-            </section>
+            </div>
+          </header>
+
+          <div class="proj-narrative">
+            <p>
+              I wanted to log expenses without opening an app. So I built a
+              Telegram bot that takes a one-line message, files it under a
+              category, and answers <em>"where did my money go this
+              month?"</em> with a single command.
+            </p>
+            <p>
+              Under the hood it runs on Python, switches between SQLite
+              (local) and PostgreSQL (Render) with one env flag, and ships
+              with a Render blueprint so deploying is two clicks. Five live
+              flows: <code>add</code>, <code>list</code>, <code>delete</code>,
+              <code>compare</code>, <code>chart</code>.
+            </p>
           </div>
-          <ul class="project-findings">
-            <li>Supports add, list, delete, compare, and chart flows.</li>
-            <li>Deploy-ready with `render.yaml` and environment-based DB switch.</li>
-          </ul>
+
+          <dl class="proj-meta-strip">
+            <div>
+              <dt>Problem</dt>
+              <dd>Frictionless expense logging that survives past week one.</dd>
+            </div>
+            <div>
+              <dt>Data</dt>
+              <dd>
+                User-level transactions by date and category, in SQLite or
+                PostgreSQL.
+              </dd>
+            </div>
+            <div>
+              <dt>Methods</dt>
+              <dd>
+                Python Telegram bot, inline command UX, env-based DB switch,
+                Render worker blueprint.
+              </dd>
+            </div>
+            <div>
+              <dt>Result</dt>
+              <dd>
+                Monthly category pie + month-over-month compare in one
+                command.
+              </dd>
+            </div>
+          </dl>
+
+          <aside class="proj-tldr">
+            <p class="proj-tldr-tag">TL;DR</p>
+            <p>
+              A small tool that ships, with a deploy story that fits on a
+              sticky note.
+            </p>
+          </aside>
+
           <ul class="chips project-tags">
             <li>Python</li>
             <li>Telegram Bot API</li>
@@ -258,186 +636,69 @@
             >
           </p>
         </article>
-
-        <article class="project-item">
-          <h3>
-            NBA return-to-play: internal load injuries and team-level medical
-            outcomes
-          </h3>
-          <p class="project-meta">
-            5,000+ documented return events · 15 seasons (2011-2025) · sensitive
-            load injuries (knee, plantar or calf)
-          </p>
-          <div class="project-grid">
-            <section class="project-block">
-              <h4>Problem</h4>
-              <p>
-                Identify whether some teams return players fast without paying a
-                recurrence penalty in internal load injuries.
-              </p>
-            </section>
-            <section class="project-block">
-              <h4>Data scope</h4>
-              <p>
-                More than 5,000 documented return events across 2011-2025,
-                focused on knee, plantar, and calf injury types.
-              </p>
-            </section>
-            <section class="project-block">
-              <h4>Methods and tools</h4>
-              <p>
-                Team-level and within-player comparisons, severity and usage
-                controls, clustered recurrence-gap analysis, and broad-outcome
-                sensitivity checks.
-              </p>
-            </section>
-            <section class="project-block">
-              <h4>Key numeric result</h4>
-              <p>
-                Fast-return clusters show about 18pp recurrence spread (38% vs
-                20%, p &lt; 0.001), with about 17pp preserved within-player.
-              </p>
-            </section>
-          </div>
-          <ul class="project-findings">
-            <li>Gap persists after severity/timing controls and usage matching.</li>
-            <li>
-              Expanding to all load injuries reduces gap to 8.5pp but keeps it
-              significant.
-            </li>
-          </ul>
-          <section class="interactive-matrix" id="team-matrix-app">
-            <div class="matrix-header">
-              <h4>Interactive Team Matrix</h4>
-              <p>
-                Explore team-level return-speed vs re-injury risk using
-                sensitive load injuries only (knee and plantar/calf).
-              </p>
-            </div>
-
-            <div class="matrix-controls">
-              <div class="matrix-filters" role="group" aria-label="Filter teams by profile">
-                <button class="matrix-filter active" data-profile="ALL">All</button>
-                <button class="matrix-filter" data-profile="SMART_FAST">Smart &amp; Fast</button>
-                <button class="matrix-filter" data-profile="RECKLESS">Reckless</button>
-                <button class="matrix-filter" data-profile="CONSERVATIVE">Conservative</button>
-                <button class="matrix-filter" data-profile="INEFFECTIVE">Ineffective</button>
-              </div>
-              <label class="matrix-search-label">
-                Team:
-                <input
-                  id="matrixTeamSearch"
-                  type="text"
-                  maxlength="3"
-                  placeholder="e.g. GSW"
-                  aria-label="Search team abbreviation"
-                />
-              </label>
-            </div>
-
-            <div class="matrix-layout">
-              <div class="matrix-canvas-wrap">
-                <svg
-                  id="teamMatrixSvg"
-                  viewBox="0 0 820 460"
-                  role="img"
-                  aria-label="Interactive NBA team matrix chart"
-                ></svg>
-                <div id="teamMatrixTooltip" class="matrix-tooltip" aria-hidden="true"></div>
-              </div>
-              <aside class="matrix-sidepanel" id="matrixSidepanel">
-                <h5>Selected Team</h5>
-                <p class="matrix-side-hint">
-                  Click a team in the chart to pin details.
-                </p>
-                <dl class="matrix-metrics">
-                  <div><dt>Team</dt><dd id="matrixTeam">-</dd></div>
-                  <div><dt>Profile</dt><dd id="matrixProfile">-</dd></div>
-                  <div><dt>Fast return rate (Q1)</dt><dd id="matrixFast">-</dd></div>
-                  <div><dt>Re-injury rate</dt><dd id="matrixReinj">-</dd></div>
-                  <div><dt>Safety rate</dt><dd id="matrixSafety">-</dd></div>
-                  <div><dt>Sample size</dt><dd id="matrixN">-</dd></div>
-                </dl>
-              </aside>
-            </div>
-          </section>
-          <section class="chart-gallery" id="chart-gallery">
-            <div class="gallery-header">
-              <h4>Evidence Charts Gallery</h4>
-              <p>
-                Browse all supporting analyses from the return-to-play project.
-              </p>
-            </div>
-            <div class="gallery-stage">
-              <button class="gallery-nav" id="galleryPrev" aria-label="Previous chart">
-                &#8592;
-              </button>
-              <figure class="gallery-figure">
-                <img
-                  id="galleryImage"
-                  src="chart31_iv_standings.png"
-                  alt="Standings IV check"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <figcaption id="galleryCaption"></figcaption>
-              </figure>
-              <button class="gallery-nav" id="galleryNext" aria-label="Next chart">
-                &#8594;
-              </button>
-            </div>
-            <p class="gallery-help">
-              Tip: click the main chart to open full-screen view.
-            </p>
-            <div class="gallery-thumbs" id="galleryThumbs" aria-label="Chart thumbnails"></div>
-          </section>
-          <ul class="chips project-tags">
-            <li>Sports medicine analytics</li>
-            <li>Survival-style return metrics</li>
-            <li>Within-player inference</li>
-            <li>Robustness checks</li>
-          </ul>
-          <p class="project-links">
-            <a
-              id="openChartLink"
-              class="project-doc-link"
-              href="nba-rtp-internal-load-injuries-chart.png?v=20260426-2"
-              target="_blank"
-              rel="noopener noreferrer"
-              >Open chart</a
-            >
-          </p>
-        </article>
       </section>
-
     </main>
 
     <div class="gallery-lightbox" id="galleryLightbox" hidden>
-      <button class="gallery-lightbox-close" id="galleryLightboxClose" aria-label="Close large image">
+      <button
+        class="gallery-lightbox-close"
+        id="galleryLightboxClose"
+        aria-label="Close large image"
+      >
         &times;
       </button>
-      <button class="gallery-lightbox-nav prev" id="galleryLightboxPrev" aria-label="Previous large chart">
+      <button
+        class="gallery-lightbox-nav prev"
+        id="galleryLightboxPrev"
+        aria-label="Previous large chart"
+      >
         &#8592;
       </button>
       <figure class="gallery-lightbox-figure">
         <img id="galleryLightboxImage" src="" alt="Expanded chart preview" />
         <figcaption id="galleryLightboxCaption"></figcaption>
       </figure>
-      <button class="gallery-lightbox-nav next" id="galleryLightboxNext" aria-label="Next large chart">
+      <button
+        class="gallery-lightbox-nav next"
+        id="galleryLightboxNext"
+        aria-label="Next large chart"
+      >
         &#8594;
       </button>
     </div>
 
     <footer id="contact">
-      <p>Email: <a href="mailto:Tamiravraham.frisher@mail.huji.ac.il">Tamiravraham.frisher@mail.huji.ac.il</a></p>
-      <p>Phone: +972 52-327-1357</p>
-      <p>
-        LinkedIn:
-        <a href="https://www.linkedin.com/in/tamir-frisher" target="_blank"
-          >tamir-frisher</a
-        >
-      </p>
-      <p>Jerusalem, Israel</p>
+      <div class="footer-credits">
+        <p class="footer-credits-label">Get in touch</p>
+        <p>
+          Email:
+          <a href="mailto:Tamiravraham.frisher@mail.huji.ac.il"
+            >Tamiravraham.frisher@mail.huji.ac.il</a
+          >
+        </p>
+        <p>
+          Phone: <a href="tel:+972523271357">+972 52-327-1357</a>
+        </p>
+        <p>
+          LinkedIn:
+          <a
+            href="https://www.linkedin.com/in/tamir-frisher"
+            target="_blank"
+            rel="noopener noreferrer"
+            >tamir-frisher</a
+          >
+        </p>
+        <p>Jerusalem, Israel</p>
+      </div>
+      <div class="footer-sign">
+        <p class="footer-sign-label">Notes</p>
+        <p>Designed and built by <strong>Tamir Frisher</strong> in Jerusalem.</p>
+        <p>
+          In a previous life I commanded an IDF squad of 80 — same job,
+          different units.
+        </p>
+        <p>Last updated April 2026.</p>
+      </div>
     </footer>
     <script>
       (() => {

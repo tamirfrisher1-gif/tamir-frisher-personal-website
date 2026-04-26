@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200" role="img" aria-label="Tamir Frisher monogram placeholder">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#131f3e"/>
+      <stop offset="100%" stop-color="#0b1834"/>
+    </linearGradient>
+    <linearGradient id="ring" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ffd75a"/>
+      <stop offset="100%" stop-color="#ffc72c"/>
+    </linearGradient>
+  </defs>
+  <circle cx="100" cy="100" r="100" fill="url(#bg)"/>
+  <circle cx="100" cy="100" r="92" fill="none" stroke="url(#ring)" stroke-width="2" stroke-opacity="0.35"/>
+  <text x="100" y="128" font-family="'Antonio','Arial Narrow',Arial,sans-serif" font-weight="700" font-size="110" fill="#ffc72c" text-anchor="middle" letter-spacing="-2">TF</text>
+</svg>

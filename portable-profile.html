@@ -3,15 +3,31 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tamir Frisher | Portfolio</title>
+    <title>Tamir Frisher — Portable Profile</title>
+    <meta
+      name="description"
+      content="Single-file portable portfolio of Tamir Frisher — NBA analytics, causal inference, and a Telegram expense bot."
+    />
+    <meta name="theme-color" content="#0b1834" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Antonio:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
     <style>
       :root {
-        --bg: #0b1020;
-        --card: #121a30;
-        --text: #e9edff;
-        --muted: #a9b4d0;
-        --accent: #4fa3ff;
-        --accent-2: #6be4c8;
+        --ink: #0b1834;
+        --ink-soft: #131f3e;
+        --ink-line: rgba(244, 241, 234, 0.09);
+        --ink-line-strong: rgba(244, 241, 234, 0.18);
+        --ivory: #f4f1ea;
+        --ivory-soft: #d8d6cf;
+        --ivory-mute: #94a0bb;
+        --gold: #ffc72c;
+        --gold-soft: #ffd75a;
+        --gold-line: rgba(255, 199, 44, 0.22);
+        --gold-wash: rgba(255, 199, 44, 0.06);
       }
 
       * {
@@ -20,12 +36,43 @@
         padding: 0;
       }
 
-      body {
-        font-family: Arial, Helvetica, sans-serif;
-        background: radial-gradient(circle at top right, #1d2b4f, var(--bg) 60%);
-        color: var(--text);
-        line-height: 1.6;
+      html {
         scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Inter", system-ui, sans-serif;
+        font-weight: 450;
+        background: var(--ink);
+        color: var(--ivory);
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+        position: relative;
+        min-height: 100vh;
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: -1;
+        background-image:
+          linear-gradient(rgba(255, 199, 44, 0.045) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 199, 44, 0.045) 1px, transparent 1px);
+        background-size: 86px 86px;
+        -webkit-mask-image: radial-gradient(
+          ellipse at top,
+          black 0%,
+          black 55%,
+          transparent 100%
+        );
+        mask-image: radial-gradient(
+          ellipse at top,
+          black 0%,
+          black 55%,
+          transparent 100%
+        );
       }
 
       .container {
@@ -34,80 +81,144 @@
       }
 
       .hero {
-        min-height: 70vh;
-        padding: 1.2rem 1rem 3rem;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        background-image: linear-gradient(
-            rgba(11, 16, 32, 0.66),
-            rgba(11, 16, 32, 0.78)
+        padding: 1.4rem 1rem 2.4rem;
+        border-bottom: 1px solid var(--gold-line);
+        background: linear-gradient(
+            180deg,
+            rgba(11, 24, 52, 0.55),
+            rgba(11, 24, 52, 1)
           ),
-          url("https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1800&q=80");
-        background-size: cover;
-        background-position: center;
+          radial-gradient(
+            ellipse at 8% 0%,
+            rgba(255, 199, 44, 0.08),
+            transparent 45%
+          ),
+          var(--ink);
       }
 
       .top-nav {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        gap: 0.75rem 1rem;
+        gap: 1.3rem;
+        padding: 0.45rem 1.1rem;
+        width: fit-content;
+        margin: 0 auto;
+        border: 1px solid var(--ink-line-strong);
+        border-radius: 999px;
+        background: rgba(11, 24, 52, 0.85);
+        backdrop-filter: blur(6px);
       }
 
       .top-nav a {
-        color: var(--text);
+        position: relative;
+        color: var(--ivory-soft);
         text-decoration: none;
-        font-weight: 700;
-        font-size: 0.95rem;
-        opacity: 0.95;
-        padding-bottom: 0.2rem;
-        border-bottom: 2px solid transparent;
-        transition: border-color 0.2s ease;
+        font-size: 0.88rem;
+        font-weight: 500;
+        padding-bottom: 2px;
+        transition: color 0.18s ease;
       }
 
+      .top-nav a:hover,
       .top-nav a.active {
-        border-bottom-color: var(--accent-2);
+        color: var(--gold);
+      }
+
+      .top-nav a::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -2px;
+        height: 1px;
+        background: var(--gold);
+        transform: scaleX(0);
+        transition: transform 0.2s ease;
+      }
+
+      .top-nav a:hover::after,
+      .top-nav a.active::after {
+        transform: scaleX(1);
       }
 
       .hero-content {
-        max-width: 760px;
-        margin: 2.5rem auto 0;
-        text-align: center;
+        max-width: 980px;
+        margin: 2.6rem auto 0;
+        display: grid;
+        grid-template-columns: 180px 1fr;
+        gap: 2rem;
+        align-items: center;
+      }
+
+      .hero-portrait {
+        width: 180px;
+        height: 180px;
+        border-radius: 50%;
+        overflow: hidden;
+        border: 3px solid var(--gold);
+        box-shadow: 0 0 0 5px rgba(255, 199, 44, 0.08);
+        background: linear-gradient(135deg, var(--ink-soft), var(--ink));
+      }
+
+      .hero-portrait svg {
+        width: 100%;
+        height: 100%;
+        display: block;
       }
 
       .eyebrow {
-        color: var(--accent-2);
-        font-weight: 700;
-        letter-spacing: 0.03em;
+        font-family: "JetBrains Mono", ui-monospace, monospace;
+        font-size: 0.76rem;
+        letter-spacing: 0.18em;
         text-transform: uppercase;
-        margin-bottom: 0.45rem;
+        color: var(--gold);
+        margin-bottom: 0.55rem;
       }
 
       .hero h1 {
-        font-size: clamp(2rem, 6vw, 3.7rem);
-        margin-bottom: 0.7rem;
-        line-height: 1.1;
+        font-family: "Antonio", "Inter", sans-serif;
+        font-weight: 700;
+        font-size: clamp(2.4rem, 6.5vw, 4.2rem);
+        line-height: 0.95;
+        letter-spacing: 0.005em;
+        margin-bottom: 0.85rem;
+        color: var(--ivory);
       }
 
-      .subtitle {
-        color: #d7def5;
-        max-width: 680px;
-        margin: 0 auto 1.2rem;
+      .hero-line {
+        font-size: clamp(1rem, 1.7vw, 1.15rem);
+        line-height: 1.5;
+        color: var(--ivory-soft);
+        max-width: 56ch;
+        margin-bottom: 1.1rem;
+      }
+
+      .hero-line em {
+        color: var(--gold);
+        font-style: italic;
       }
 
       .cta {
-        display: inline-block;
-        background: linear-gradient(90deg, var(--accent), #8cc5ff);
-        color: #081124;
-        font-weight: 700;
+        display: inline-flex;
+        align-items: center;
+        background: var(--gold);
+        color: var(--ink);
+        font-weight: 600;
+        font-size: 0.92rem;
         text-decoration: none;
-        padding: 0.75rem 1.2rem;
-        border-radius: 999px;
+        padding: 0.65rem 1.2rem;
+        border-radius: 4px;
+        border: 1px solid var(--gold);
+        transition: background 0.18s ease;
+      }
+
+      .cta:hover {
+        background: var(--gold-soft);
       }
 
       #about {
-        margin-top: -2rem;
+        margin-top: -1.2rem;
         margin-bottom: 1rem;
       }
 
@@ -118,16 +229,53 @@
       }
 
       .card {
-        background: rgba(18, 26, 48, 0.9);
-        border: 1px solid rgba(255, 255, 255, 0.09);
-        border: 1px solid rgba(255, 255, 255, 0.12);
+        position: relative;
+        background: linear-gradient(
+          180deg,
+          rgba(19, 31, 62, 0.78),
+          rgba(11, 24, 52, 0.82)
+        );
+        border: 1px solid var(--ink-line);
         border-radius: 14px;
-        padding: 1rem;
+        padding: 1.2rem;
+        overflow: hidden;
+      }
+
+      .card::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 18%;
+        bottom: 18%;
+        width: 3px;
+        background: var(--gold);
+        border-radius: 0 4px 4px 0;
+        transform: scaleY(0);
+        transform-origin: top;
+        transition: transform 0.32s cubic-bezier(0.2, 0.8, 0.2, 1);
+      }
+
+      .card:hover::before,
+      .card:focus-within::before {
+        transform: scaleY(1);
+      }
+
+      .section-tag {
+        font-family: "JetBrains Mono", ui-monospace, monospace;
+        font-size: 0.72rem;
+        text-transform: uppercase;
+        letter-spacing: 0.18em;
+        color: var(--gold);
+        margin-bottom: 0.4rem;
       }
 
       .card h2 {
-        font-size: 1.22rem;
-        margin-bottom: 0.55rem;
+        font-family: "Antonio", "Inter", sans-serif;
+        font-weight: 600;
+        font-size: clamp(1.4rem, 2.4vw, 1.9rem);
+        line-height: 1.05;
+        color: var(--ivory);
+        margin-bottom: 0.75rem;
       }
 
       .section-animate {
@@ -141,114 +289,144 @@
         transform: translateY(0);
       }
 
-      .muted {
-        color: var(--muted);
-      }
-
       .timeline-item + .timeline-item {
-        margin-top: 0.9rem;
-        padding-top: 0.9rem;
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        margin-top: 0.95rem;
+        padding-top: 0.95rem;
+        border-top: 1px solid var(--ink-line);
       }
 
       .timeline-item h3 {
-        font-size: 1.02rem;
+        font-family: "Antonio", "Inter", sans-serif;
+        font-weight: 600;
+        font-size: 1.12rem;
+        color: var(--ivory);
+        margin-bottom: 0.18rem;
       }
 
       .timeline-item span {
-        color: var(--muted);
-        font-size: 0.92rem;
+        display: block;
+        color: var(--ivory-mute);
+        font-family: "JetBrains Mono", ui-monospace, monospace;
+        font-size: 0.78rem;
+        letter-spacing: 0.06em;
+        margin-bottom: 0.35rem;
       }
 
-      .chips {
+      .skill-tier + .skill-tier {
+        margin-top: 0.7rem;
+        padding-top: 0.7rem;
+        border-top: 1px solid var(--ink-line);
+      }
+
+      .skill-tier-label {
+        font-family: "JetBrains Mono", ui-monospace, monospace;
+        font-size: 0.72rem;
+        text-transform: uppercase;
+        letter-spacing: 0.18em;
+        color: var(--gold);
+        margin-bottom: 0.4rem;
+      }
+
+      .skill-list {
         list-style: none;
         display: flex;
         flex-wrap: wrap;
-        gap: 0.5rem;
+        gap: 0.4rem 0.7rem;
+        font-size: 0.94rem;
+        color: var(--ivory);
       }
 
-      .chips li {
-        background: rgba(79, 163, 255, 0.17);
-        border: 1px solid rgba(79, 163, 255, 0.35);
-        border-radius: 999px;
-        padding: 0.32rem 0.75rem;
-        font-size: 0.91rem;
+      .skill-list li:not(:last-child)::after {
+        content: "·";
+        margin-left: 0.7rem;
+        color: var(--gold);
+        opacity: 0.6;
       }
 
       .project-controls {
         display: flex;
         flex-wrap: wrap;
         gap: 0.45rem;
-        margin-bottom: 0.75rem;
+        margin-bottom: 0.85rem;
       }
 
       .filter-btn {
-        background: rgba(79, 163, 255, 0.14);
-        border: 1px solid rgba(79, 163, 255, 0.38);
-        color: var(--text);
+        background: rgba(244, 241, 234, 0.04);
+        border: 1px solid var(--ink-line-strong);
+        color: var(--ivory-soft);
         border-radius: 999px;
         padding: 0.3rem 0.8rem;
         cursor: pointer;
+        font-family: "JetBrains Mono", ui-monospace, monospace;
+        font-size: 0.74rem;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        transition: color 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+      }
+
+      .filter-btn:hover {
+        color: var(--gold);
+        border-color: var(--gold-line);
       }
 
       .filter-btn.active {
-        background: var(--accent);
-        color: #091126;
-        font-weight: 700;
+        background: var(--gold);
+        border-color: var(--gold);
+        color: var(--ink);
       }
 
       .projects-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-        gap: 0.75rem;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 0.85rem;
       }
 
       .project-card {
-        background: rgba(255, 255, 255, 0.03);
-        border: 1px solid rgba(255, 255, 255, 0.1);
+        background: rgba(255, 199, 44, 0.04);
+        border: 1px solid var(--gold-line);
         border-radius: 10px;
-        padding: 0.8rem;
+        padding: 0.95rem;
       }
 
       .project-card h3 {
-        font-size: 0.98rem;
-        margin-bottom: 0.3rem;
+        font-family: "Antonio", "Inter", sans-serif;
+        font-weight: 600;
+        font-size: 1.1rem;
+        line-height: 1.15;
+        margin-bottom: 0.4rem;
+        color: var(--ivory);
+      }
+
+      .project-card p {
+        font-size: 0.92rem;
+        color: var(--ivory-soft);
+        margin-bottom: 0.55rem;
       }
 
       .badge {
         display: inline-block;
-        margin-top: 0.4rem;
-        color: #a6d7ff;
-        font-size: 0.82rem;
+        font-family: "JetBrains Mono", ui-monospace, monospace;
+        font-size: 0.72rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--gold);
       }
 
-      .image-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-        gap: 0.8rem;
+      .doc-link {
+        display: inline-block;
+        margin-bottom: 0.5rem;
+        color: var(--gold);
+        text-decoration: none;
+        border-bottom: 1px solid var(--gold-line);
+        padding-bottom: 1px;
       }
 
-      figure {
-        border-radius: 12px;
-        overflow: hidden;
-        background: #0c1327;
-      }
-
-      figure img {
-        width: 100%;
-        height: 180px;
-        object-fit: cover;
-        display: block;
-      }
-
-      figcaption {
-        padding: 0.65rem;
-        color: #d0daf7;
-        font-size: 0.9rem;
+      .doc-link:hover {
+        border-bottom-color: var(--gold);
       }
 
       .language-row {
-        margin-top: 0.55rem;
+        margin-top: 0.6rem;
       }
 
       .language-head {
@@ -259,10 +437,17 @@
         margin-bottom: 0.25rem;
       }
 
+      .language-head span:last-child {
+        font-family: "JetBrains Mono", ui-monospace, monospace;
+        font-size: 0.78rem;
+        color: var(--ivory-mute);
+        letter-spacing: 0.04em;
+      }
+
       .bar {
         width: 100%;
-        height: 9px;
-        background: rgba(255, 255, 255, 0.1);
+        height: 8px;
+        background: rgba(244, 241, 234, 0.08);
         border-radius: 999px;
         overflow: hidden;
       }
@@ -271,7 +456,7 @@
         display: block;
         height: 100%;
         border-radius: 999px;
-        background: linear-gradient(90deg, var(--accent), var(--accent-2));
+        background: var(--gold);
       }
 
       .contact-grid {
@@ -283,46 +468,90 @@
       .contact-grid input,
       .contact-grid textarea {
         width: 100%;
-        background: rgba(255, 255, 255, 0.04);
-        border: 1px solid rgba(255, 255, 255, 0.17);
-        color: var(--text);
-        border-radius: 8px;
-        padding: 0.55rem 0.65rem;
+        background: rgba(244, 241, 234, 0.04);
+        border: 1px solid var(--ink-line-strong);
+        color: var(--ivory);
+        border-radius: 6px;
+        padding: 0.55rem 0.7rem;
+        font-family: inherit;
+      }
+
+      .contact-grid input:focus,
+      .contact-grid textarea:focus {
+        outline: 1px solid var(--gold);
+        border-color: var(--gold);
       }
 
       .contact-grid textarea {
-        min-height: 100px;
+        min-height: 110px;
         resize: vertical;
         grid-column: 1 / -1;
       }
 
       .contact-grid button {
         width: fit-content;
-        background: linear-gradient(90deg, var(--accent), #8cc5ff);
-        color: #081124;
-        border: none;
-        border-radius: 999px;
-        padding: 0.55rem 1rem;
-        font-weight: 700;
+        background: var(--gold);
+        color: var(--ink);
+        border: 1px solid var(--gold);
+        border-radius: 4px;
+        padding: 0.55rem 1.1rem;
+        font-weight: 600;
         cursor: pointer;
       }
 
-      .cv-link {
-        display: inline-block;
-        margin-bottom: 0.7rem;
-        color: #9ed4ff;
+      .contact-grid button:hover {
+        background: var(--gold-soft);
       }
 
       footer {
         width: min(1000px, 92%);
-        margin: 0 auto 2rem;
-        color: var(--muted);
+        margin: 1.5rem auto 2rem;
+        padding-top: 1.4rem;
+        border-top: 1px solid var(--gold-line);
         display: grid;
-        gap: 0.3rem;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.4rem;
+        color: var(--ivory-soft);
       }
 
-      footer a {
-        color: #b9d5ff;
+      .footer-credits-label,
+      .footer-sign-label {
+        font-family: "JetBrains Mono", ui-monospace, monospace;
+        font-size: 0.72rem;
+        text-transform: uppercase;
+        letter-spacing: 0.18em;
+        color: var(--gold);
+        margin-bottom: 0.45rem;
+      }
+
+      .footer-credits {
+        display: grid;
+        gap: 0.35rem;
+        font-size: 0.92rem;
+      }
+
+      .footer-credits a {
+        color: var(--gold);
+        text-decoration: none;
+        border-bottom: 1px solid var(--gold-line);
+      }
+
+      .footer-credits a:hover {
+        border-bottom-color: var(--gold);
+      }
+
+      .footer-sign {
+        display: grid;
+        gap: 0.35rem;
+        font-family: "JetBrains Mono", ui-monospace, monospace;
+        font-size: 0.8rem;
+        line-height: 1.7;
+        color: var(--ivory-mute);
+      }
+
+      .footer-sign strong {
+        color: var(--gold);
+        font-weight: 500;
       }
 
       #toTop {
@@ -332,9 +561,9 @@
         width: 40px;
         height: 40px;
         border-radius: 999px;
-        border: 1px solid rgba(255, 255, 255, 0.25);
-        background: rgba(18, 26, 48, 0.85);
-        color: var(--text);
+        border: 1px solid var(--gold-line);
+        background: rgba(11, 24, 52, 0.88);
+        color: var(--gold);
         cursor: pointer;
         display: none;
       }
@@ -344,19 +573,42 @@
       }
 
       @media (max-width: 760px) {
-        .hero {
-          min-height: 62vh;
+        .hero-content {
+          grid-template-columns: 1fr;
+          text-align: center;
+          gap: 1.2rem;
         }
-
+        .hero-portrait {
+          width: 140px;
+          height: 140px;
+          margin: 0 auto;
+        }
+        .hero-line {
+          margin-left: auto;
+          margin-right: auto;
+        }
         .contact-grid {
           grid-template-columns: 1fr;
+        }
+        footer {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          animation: none !important;
+          transition: none !important;
+          scroll-behavior: auto !important;
         }
       }
     </style>
   </head>
   <body>
     <header class="hero">
-      <nav class="top-nav">
+      <nav class="top-nav" aria-label="Primary">
         <a href="#about">About</a>
         <a href="#education">Education</a>
         <a href="#experience">Experience</a>
@@ -365,83 +617,132 @@
         <a href="#contact">Contact</a>
       </nav>
       <div class="hero-content">
-        <p class="eyebrow">Statistics, Data Science and Business Student</p>
-        <h1>Tamir Frisher</h1>
-        <p class="subtitle">
-          Third-year student with hands-on experience in Python, R, SQL, and
-          machine learning, focused on turning data into actionable insights.
-        </p>
-        <a class="cta" href="mailto:Tamiravraham.frisher@mail.huji.ac.il">Get in Touch</a>
+        <div class="hero-portrait" aria-hidden="true">
+          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#131f3e" />
+                <stop offset="100%" stop-color="#0b1834" />
+              </linearGradient>
+            </defs>
+            <circle cx="100" cy="100" r="100" fill="url(#bg)" />
+            <text
+              x="100"
+              y="128"
+              font-family="Antonio,'Arial Narrow',Arial,sans-serif"
+              font-weight="700"
+              font-size="110"
+              fill="#ffc72c"
+              text-anchor="middle"
+              letter-spacing="-2"
+            >TF</text>
+          </svg>
+        </div>
+        <div class="hero-copy">
+          <p class="eyebrow">Statistics · Data Science · HUJI</p>
+          <h1>Tamir Frisher</h1>
+          <p class="hero-line">
+            I'm Tamir. I dig into NBA data to find decisions that
+            <em>hold up under pressure</em> — and then I prove they do.
+          </p>
+          <a class="cta" href="mailto:Tamiravraham.frisher@mail.huji.ac.il"
+            >Get in touch</a
+          >
+        </div>
       </div>
     </header>
 
     <main class="container">
       <section id="about" class="card section-animate">
-        <h2>Professional Summary</h2>
+        <p class="section-tag">About</p>
+        <h2>From the bench to the stat sheet</h2>
         <p>
-          Passionate about explainable machine learning, statistical modeling,
-          and scalable technical development. Experienced in Python and R
-          workflows with a strong analytical mindset and leadership background.
+          B.Sc. final-year student in Statistics, Data Science and Business at
+          the Hebrew University, starting an M.Sc. in Data Science. I work on
+          causal inference for sports medicine, explainable ML, and small
+          tools that ship — turning messy data into decisions you can defend
+          in a room full of skeptics.
         </p>
       </section>
 
       <section class="main-grid">
         <article id="education" class="card section-animate">
-          <h2>Education</h2>
+          <p class="section-tag">Education</p>
+          <h2>Hebrew University of Jerusalem</h2>
           <div class="timeline-item">
-            <h3>The Hebrew University of Jerusalem</h3>
-            <p>
-              <strong>B.Sc. in Statistics, Data Science and Business</strong>
-              (2023-2026), final semester, GPA: 88
-            </p>
-            <p><strong>M.Sc. in Data Science</strong>, expected graduation: 2028</p>
+            <h3>B.Sc. in Statistics, Data Science and Business</h3>
+            <span>2023 – 2026 · final semester · GPA 88</span>
+          </div>
+          <div class="timeline-item">
+            <h3>M.Sc. in Data Science</h3>
+            <span>Started during the final B.Sc. semester · expected 2028</span>
           </div>
         </article>
 
         <article id="experience" class="card section-animate">
-          <h2>Experience</h2>
+          <p class="section-tag">Experience</p>
+          <h2>Where I've worked</h2>
           <div class="timeline-item">
-            <h3>Strategy Analyst | Cross River</h3>
-            <span>2025-2026</span>
+            <h3>Strategy Analyst · Cross River</h3>
+            <span>2025 – 2026</span>
             <p>
               Analyzed market trends and identified growth opportunities to
               support data-backed strategic decisions.
             </p>
           </div>
           <div class="timeline-item">
-            <h3>Teaching Assistant | Hebrew University</h3>
-            <span>2025-2026</span>
+            <h3>Teaching Assistant · Hebrew University</h3>
+            <span>2025 – 2026</span>
             <p>
-              Graded Foundations of Programming assignments and collaborated on
-              grading standards with course staff.
+              Graded Foundations of Programming assignments and collaborated
+              with course staff on grading standards.
             </p>
           </div>
           <div class="timeline-item">
-            <h3>Squad Commander | IDF</h3>
-            <span>2019-2021</span>
+            <h3>Squad Commander · IDF</h3>
+            <span>2019 – 2021</span>
             <p>
-              Commanded and trained a unit of 80 soldiers while managing
-              schedules, logistics, and team development.
+              Led and trained a unit of 80 soldiers; managed schedules,
+              logistics, and team development under pressure.
             </p>
           </div>
         </article>
 
         <article id="skills" class="card section-animate">
-          <h2>Skills</h2>
-          <ul class="chips">
-            <li>Python (Pandas, Scikit-learn, NumPy)</li>
-            <li>Advanced SQL (Window Functions, CTEs)</li>
-            <li>R</li>
-            <li>Java</li>
-            <li>Machine Learning</li>
-            <li>Explainable AI (SHAP, LIME, PFI)</li>
-            <li>Statistical Modeling</li>
-            <li>Data Visualization</li>
-            <li>Git and Cursor</li>
-          </ul>
+          <p class="section-tag">Skills</p>
+          <h2>What I reach for</h2>
+          <div class="skill-tier">
+            <p class="skill-tier-label">Daily drivers</p>
+            <ul class="skill-list">
+              <li>Python (Pandas, scikit-learn, NumPy)</li>
+              <li>Advanced SQL</li>
+              <li>R</li>
+              <li>Statistical modeling</li>
+              <li>Data visualization</li>
+            </ul>
+          </div>
+          <div class="skill-tier">
+            <p class="skill-tier-label">Have shipped with</p>
+            <ul class="skill-list">
+              <li>Telegram Bot API</li>
+              <li>PostgreSQL &amp; SQLite</li>
+              <li>Render</li>
+              <li>Git &amp; Cursor</li>
+            </ul>
+          </div>
+          <div class="skill-tier">
+            <p class="skill-tier-label">Comfortable</p>
+            <ul class="skill-list">
+              <li>Java</li>
+              <li>Explainable AI (SHAP, LIME, PFI)</li>
+              <li>Causal inference (PSM, DiD, ITT)</li>
+              <li>Machine learning</li>
+            </ul>
+          </div>
         </article>
 
         <article id="projects" class="card section-animate">
+          <p class="section-tag">Selected work</p>
           <h2>Projects</h2>
           <div class="project-controls">
             <button class="filter-btn active" data-filter="all">All</button>
@@ -451,46 +752,15 @@
           </div>
           <div class="projects-grid">
             <div class="project-card" data-category="stats">
-              <h3>Cumulative workload &amp; player injuries</h3>
-              <p>
-                NBA capstone (Hebrew report): rolling workload features,
-                injury windows, PSM + DiD, then ITT using exogenous schedule
-                density; falsification on contact injuries; per-game risk and
-                double-ITT carryover week analysis.
-              </p>
-              <a
-                class="cv-link"
-                href="/tamir-frisher-personal-website/project-cumulative-workload-player-injuries.docx"
-                >Download report (.docx)</a
-              >
-              <span class="badge">Stats · Sports</span>
-            </div>
-            <div class="project-card" data-category="python sql stats">
-              <h3>Telegram expense bot</h3>
-              <p>
-                Python Telegram bot: categorized expenses, list and delete
-                flows, SQLite or PostgreSQL storage, monthly pie chart and
-                month-over-month compare. Render blueprint for deploy.
-              </p>
-              <a
-                class="cv-link"
-                href="https://github.com/tamirfrisher1-gif/telegram-expense-bot"
-                target="_blank"
-                rel="noopener noreferrer"
-                >View on GitHub</a
-              >
-              <span class="badge">Python · Telegram · SQL</span>
-            </div>
-            <div class="project-card" data-category="stats">
               <h3>NBA return-to-play (internal load injuries)</h3>
               <p>
-                5,000+ returns over 15 seasons: team gaps in fast return vs
-                same-injury recurrence (knee, plantar or calf). DEN/NYK/LAC vs
-                HOU/DAL/PHX cluster gap ~18pp (p&lt;0.001); within-player check
-                ~17pp; broader load injuries ~8.5pp.
+                5,000+ returns over 15 seasons. Some teams really do return
+                players faster <em>and</em> keep them on the floor — and the
+                gap doesn't disappear when you control for who they treat.
+                ~18pp recurrence spread (p&lt;0.001), ~17pp within-player.
               </p>
               <a
-                class="cv-link"
+                class="doc-link"
                 href="nba-rtp-internal-load-injuries-chart.png?v=20260426-2"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -498,67 +768,89 @@
               >
               <span class="badge">Stats · Sports medicine</span>
             </div>
+            <div class="project-card" data-category="stats">
+              <h3>Cumulative workload &amp; player injuries</h3>
+              <p>
+                Capstone — Hebrew University. PSM + DiD, then ITT using
+                schedule density, with a contact-injury falsification and a
+                double-ITT carryover analysis. Dense exposure raises overuse
+                risk by ~25% per game.
+              </p>
+              <a
+                class="doc-link"
+                href="project-cumulative-workload-player-injuries.docx"
+                >Download report (.docx)</a
+              >
+              <span class="badge">Stats · Sports analytics</span>
+            </div>
+            <div class="project-card" data-category="python sql stats">
+              <h3>Telegram expense bot</h3>
+              <p>
+                A chat-first replacement for the spreadsheet nobody opens.
+                Five live flows: <em>add, list, delete, compare, chart</em>.
+                Ships with a Render blueprint, switches between SQLite and
+                PostgreSQL with one env flag.
+              </p>
+              <a
+                class="doc-link"
+                href="https://github.com/tamirfrisher1-gif/telegram-expense-bot"
+                target="_blank"
+                rel="noopener noreferrer"
+                >View on GitHub</a
+              >
+              <span class="badge">Python · Telegram · SQL</span>
+            </div>
           </div>
         </article>
 
         <article class="card section-animate">
-          <h2>Certificates & Achievements</h2>
+          <p class="section-tag">Certificates</p>
+          <h2>Achievements</h2>
           <div class="timeline-item">
             <h3>Psychometric Exam</h3>
             <span>Score: 719</span>
           </div>
           <div class="timeline-item">
-            <h3>Academic Milestone</h3>
-            <span>M.Sc. Data Science track started during final B.Sc. semester</span>
+            <h3>Academic milestone</h3>
+            <span
+              >M.Sc. Data Science track started during final B.Sc. semester</span
+            >
           </div>
         </article>
 
         <article class="card section-animate">
-          <h2>Languages</h2>
+          <p class="section-tag">Languages</p>
+          <h2>How I communicate</h2>
           <div class="language-row">
-            <div class="language-head"><span>Hebrew</span><span>Native</span></div>
+            <div class="language-head">
+              <span>Hebrew</span><span>Native</span>
+            </div>
             <div class="bar"><span style="width: 100%"></span></div>
           </div>
           <div class="language-row">
-            <div class="language-head"><span>English</span><span>Native Proficiency</span></div>
+            <div class="language-head">
+              <span>English</span><span>Native proficiency</span>
+            </div>
             <div class="bar"><span style="width: 95%"></span></div>
           </div>
           <div class="language-row">
-            <div class="language-head"><span>Russian</span><span>Conversational</span></div>
+            <div class="language-head">
+              <span>Russian</span><span>Conversational</span>
+            </div>
             <div class="bar"><span style="width: 60%"></span></div>
           </div>
         </article>
 
         <article class="card section-animate">
-          <h2>Image Highlights</h2>
-          <div class="image-grid">
-            <figure>
-              <img
-                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80"
-                alt="Data dashboard visual"
-              />
-              <figcaption>Data storytelling and analytics</figcaption>
-            </figure>
-            <figure>
-              <img
-                src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80"
-                alt="Collaboration in a strategy meeting"
-              />
-              <figcaption>Strategic decision support</figcaption>
-            </figure>
-            <figure>
-              <img
-                src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&w=1200&q=80"
-                alt="Code editor with machine learning code"
-              />
-              <figcaption>Technical and ML development</figcaption>
-            </figure>
-          </div>
-        </article>
-
-        <article class="card section-animate">
-          <h2>Quick Contact</h2>
-          <a class="cv-link" href="/tamir-frisher-personal-website/Tamir%20Frisher%20CV.pdf" target="_blank" rel="noopener noreferrer">Open CV</a>
+          <p class="section-tag">Quick contact</p>
+          <h2>Drop me a line</h2>
+          <a
+            class="doc-link"
+            href="Tamir%20Frisher%20CV.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Open CV (PDF)</a
+          >
           <form
             class="contact-grid"
             action="mailto:Tamiravraham.frisher@mail.huji.ac.il"
@@ -566,29 +858,68 @@
             enctype="text/plain"
           >
             <input type="text" name="name" placeholder="Your name" required />
-            <input type="email" name="email" placeholder="Your email" required />
-            <textarea name="message" placeholder="Your message" required></textarea>
-            <button type="submit">Send Message</button>
+            <input
+              type="email"
+              name="email"
+              placeholder="Your email"
+              required
+            />
+            <textarea
+              name="message"
+              placeholder="Your message"
+              required
+            ></textarea>
+            <button type="submit">Send message</button>
           </form>
         </article>
       </section>
     </main>
 
     <footer id="contact">
-      <p>Email: <a href="mailto:Tamiravraham.frisher@mail.huji.ac.il">Tamiravraham.frisher@mail.huji.ac.il</a></p>
-      <p>Phone: +972 52-327-1357</p>
-      <p>
-        LinkedIn:
-        <a href="https://www.linkedin.com/in/tamir-frisher">linkedin.com/in/tamir-frisher</a>
-      </p>
-      <p>Location: Jerusalem, Israel</p>
+      <div class="footer-credits">
+        <p class="footer-credits-label">Get in touch</p>
+        <p>
+          Email:
+          <a href="mailto:Tamiravraham.frisher@mail.huji.ac.il"
+            >Tamiravraham.frisher@mail.huji.ac.il</a
+          >
+        </p>
+        <p>Phone: <a href="tel:+972523271357">+972 52-327-1357</a></p>
+        <p>
+          LinkedIn:
+          <a
+            href="https://www.linkedin.com/in/tamir-frisher"
+            target="_blank"
+            rel="noopener noreferrer"
+            >linkedin.com/in/tamir-frisher</a
+          >
+        </p>
+        <p>Jerusalem, Israel</p>
+      </div>
+      <div class="footer-sign">
+        <p class="footer-sign-label">Notes</p>
+        <p>
+          Designed and built by <strong>Tamir Frisher</strong> in Jerusalem.
+        </p>
+        <p>
+          In a previous life I commanded an IDF squad of 80 — same job,
+          different units.
+        </p>
+        <p>Last updated April 2026.</p>
+      </div>
     </footer>
     <button id="toTop" aria-label="Back to top">&#8593;</button>
 
     <script>
       (function () {
-        const sections = Array.from(document.querySelectorAll("main section[id], article[id], footer[id]"));
-        const navLinks = Array.from(document.querySelectorAll(".top-nav a"));
+        const sections = Array.from(
+          document.querySelectorAll(
+            "main section[id], article[id], footer[id]"
+          )
+        );
+        const navLinks = Array.from(
+          document.querySelectorAll(".top-nav a")
+        );
         const toTop = document.getElementById("toTop");
         const animated = document.querySelectorAll(".section-animate");
         const filterButtons = document.querySelectorAll(".filter-btn");
@@ -600,7 +931,10 @@
               if (!entry.isIntersecting) return;
               const id = entry.target.getAttribute("id");
               navLinks.forEach((a) => {
-                a.classList.toggle("active", a.getAttribute("href") === "#" + id);
+                a.classList.toggle(
+                  "active",
+                  a.getAttribute("href") === "#" + id
+                );
               });
             });
           },
@@ -627,7 +961,9 @@
             toTop.classList.remove("show");
           }
         });
-        toTop.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+        toTop.addEventListener("click", () =>
+          window.scrollTo({ top: 0, behavior: "smooth" })
+        );
 
         filterButtons.forEach((button) => {
           button.addEventListener("click", () => {
@@ -637,7 +973,8 @@
 
             projectCards.forEach((card) => {
               const categories = card.getAttribute("data-category") || "";
-              const show = filter === "all" || categories.indexOf(filter) !== -1;
+              const show =
+                filter === "all" || categories.indexOf(filter) !== -1;
               card.style.display = show ? "block" : "none";
             });
           });
