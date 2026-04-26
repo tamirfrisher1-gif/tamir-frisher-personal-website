@@ -57,28 +57,14 @@
         <a href="#cv">CV</a>
       </nav>
 
-      <section class="card impact-snapshot" aria-label="Impact snapshot">
-        <article>
-          <h2>3+</h2>
-          <p>Portfolio projects</p>
-        </article>
-        <article>
-          <h2>5,000+</h2>
-          <p>Return-to-play events analyzed</p>
-        </article>
-        <article>
-          <h2>15</h2>
-          <p>NBA seasons in injury analysis</p>
-        </article>
-      </section>
-
       <section id="about" class="card">
         <h2>Professional Summary</h2>
         <p>
           Passionate about explainable machine learning (XAI), statistical
           modeling, and scalable technical development. Experienced in Python
           and R workflows with a strong analytical mindset and leadership
-          background.
+          background. Deeply interested in sports and data, with a focus on
+          turning complex datasets into practical, decision-ready insights.
         </p>
       </section>
 
@@ -400,6 +386,9 @@
                 &#8594;
               </button>
             </div>
+            <p class="gallery-help">
+              Tip: click the main chart to open full-screen view.
+            </p>
             <div class="gallery-thumbs" id="galleryThumbs" aria-label="Chart thumbnails"></div>
           </section>
           <ul class="chips project-tags">
@@ -410,6 +399,7 @@
           </ul>
           <p class="project-links">
             <a
+              id="openChartLink"
               class="project-doc-link"
               href="nba-rtp-internal-load-injuries-chart.png?v=20260426-2"
               target="_blank"
@@ -420,39 +410,23 @@
         </article>
       </section>
 
-      <section class="card">
-        <h2>Image Highlights</h2>
-        <div class="image-grid">
-          <figure>
-            <img
-              src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80"
-              alt="Data dashboard visual"
-              loading="lazy"
-              decoding="async"
-            />
-            <figcaption>Data storytelling and analytics</figcaption>
-          </figure>
-          <figure>
-            <img
-              src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80"
-              alt="Collaboration in a strategy meeting"
-              loading="lazy"
-              decoding="async"
-            />
-            <figcaption>Strategic decision support</figcaption>
-          </figure>
-          <figure>
-            <img
-              src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&w=1200&q=80"
-              alt="Code editor with machine learning code"
-              loading="lazy"
-              decoding="async"
-            />
-            <figcaption>Technical and ML development</figcaption>
-          </figure>
-        </div>
-      </section>
     </main>
+
+    <div class="gallery-lightbox" id="galleryLightbox" hidden>
+      <button class="gallery-lightbox-close" id="galleryLightboxClose" aria-label="Close large image">
+        &times;
+      </button>
+      <button class="gallery-lightbox-nav prev" id="galleryLightboxPrev" aria-label="Previous large chart">
+        &#8592;
+      </button>
+      <figure class="gallery-lightbox-figure">
+        <img id="galleryLightboxImage" src="" alt="Expanded chart preview" />
+        <figcaption id="galleryLightboxCaption"></figcaption>
+      </figure>
+      <button class="gallery-lightbox-nav next" id="galleryLightboxNext" aria-label="Next large chart">
+        &#8594;
+      </button>
+    </div>
 
     <footer id="contact">
       <p>Email: <a href="mailto:Tamiravraham.frisher@mail.huji.ac.il">Tamiravraham.frisher@mail.huji.ac.il</a></p>
@@ -751,6 +725,13 @@
         const prevBtn = document.getElementById("galleryPrev");
         const nextBtn = document.getElementById("galleryNext");
         const thumbsRoot = document.getElementById("galleryThumbs");
+        const openChartLink = document.getElementById("openChartLink");
+        const lightbox = document.getElementById("galleryLightbox");
+        const lightboxImage = document.getElementById("galleryLightboxImage");
+        const lightboxCaption = document.getElementById("galleryLightboxCaption");
+        const lightboxClose = document.getElementById("galleryLightboxClose");
+        const lightboxPrev = document.getElementById("galleryLightboxPrev");
+        const lightboxNext = document.getElementById("galleryLightboxNext");
         if (!imageEl || !captionEl || !prevBtn || !nextBtn || !thumbsRoot) return;
 
         const charts = [
@@ -781,6 +762,14 @@
           imageEl.src = `${item.file}?v=1`;
           imageEl.alt = item.title;
           captionEl.textContent = `${item.title} - ${item.note}`;
+          if (openChartLink) {
+            openChartLink.href = item.file;
+          }
+          if (lightbox && !lightbox.hidden && lightboxImage && lightboxCaption) {
+            lightboxImage.src = item.file;
+            lightboxImage.alt = item.title;
+            lightboxCaption.textContent = `${item.title} - ${item.note}`;
+          }
           thumbsRoot.querySelectorAll("button").forEach((btn, idx) => {
             btn.classList.toggle("active", idx === current);
           });
@@ -795,6 +784,7 @@
           btn.addEventListener("click", () => {
             current = idx;
             render();
+            openLightbox();
           });
           thumbsRoot.appendChild(btn);
         });
@@ -806,6 +796,48 @@
         nextBtn.addEventListener("click", () => {
           current = (current + 1) % charts.length;
           render();
+        });
+
+        const openLightbox = () => {
+          if (!lightbox || !lightboxImage || !lightboxCaption) return;
+          const item = charts[current];
+          lightboxImage.src = item.file;
+          lightboxImage.alt = item.title;
+          lightboxCaption.textContent = `${item.title} - ${item.note}`;
+          lightbox.hidden = false;
+          document.body.style.overflow = "hidden";
+        };
+
+        const closeLightbox = () => {
+          if (!lightbox) return;
+          lightbox.hidden = true;
+          document.body.style.overflow = "";
+        };
+
+        imageEl.addEventListener("click", openLightbox);
+        lightboxClose?.addEventListener("click", closeLightbox);
+        lightboxPrev?.addEventListener("click", () => {
+          current = (current - 1 + charts.length) % charts.length;
+          render();
+        });
+        lightboxNext?.addEventListener("click", () => {
+          current = (current + 1) % charts.length;
+          render();
+        });
+        lightbox?.addEventListener("click", (event) => {
+          if (event.target === lightbox) closeLightbox();
+        });
+        document.addEventListener("keydown", (event) => {
+          if (!lightbox || lightbox.hidden) return;
+          if (event.key === "Escape") closeLightbox();
+          if (event.key === "ArrowLeft") {
+            current = (current - 1 + charts.length) % charts.length;
+            render();
+          }
+          if (event.key === "ArrowRight") {
+            current = (current + 1) % charts.length;
+            render();
+          }
         });
 
         render();

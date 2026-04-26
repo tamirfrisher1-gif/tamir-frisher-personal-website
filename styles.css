@@ -501,10 +501,11 @@ h2 {
 
 .gallery-figure img {
   width: 100%;
-  max-height: 560px;
+  max-height: 620px;
   display: block;
   object-fit: contain;
   background: #070d19;
+  cursor: zoom-in;
 }
 
 .gallery-figure figcaption {
@@ -539,6 +540,75 @@ h2 {
 .gallery-thumb.active {
   border-color: rgba(107, 228, 200, 0.9);
   box-shadow: 0 0 0 1px rgba(107, 228, 200, 0.5);
+}
+
+.gallery-help {
+  margin-top: 0.5rem;
+  font-size: 0.84rem;
+  color: var(--muted);
+}
+
+.gallery-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  background: rgba(4, 8, 16, 0.9);
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 1rem;
+}
+
+.gallery-lightbox[hidden] {
+  display: none;
+}
+
+.gallery-lightbox-figure {
+  margin: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: #070d19;
+}
+
+.gallery-lightbox-figure img {
+  display: block;
+  width: min(92vw, 1320px);
+  max-height: 84vh;
+  object-fit: contain;
+  background: #070d19;
+}
+
+.gallery-lightbox-figure figcaption {
+  padding: 0.6rem 0.75rem;
+  color: #d8e4ff;
+  font-size: 0.9rem;
+}
+
+.gallery-lightbox-close {
+  position: absolute;
+  top: 0.9rem;
+  right: 1rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.gallery-lightbox-nav {
+  width: 42px;
+  height: 56px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.08);
+  color: #f4f8ff;
+  cursor: pointer;
 }
 
 .project-item h3 {
@@ -755,6 +825,22 @@ footer a {
   .gallery-nav {
     width: 100%;
     height: 34px;
+  }
+
+  .gallery-lightbox {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    justify-items: center;
+  }
+
+  .gallery-lightbox-nav {
+    width: 90%;
+    height: 34px;
+  }
+
+  .gallery-lightbox-figure img {
+    width: min(96vw, 96vw);
+    max-height: 74vh;
   }
 
   .matrix-controls {
