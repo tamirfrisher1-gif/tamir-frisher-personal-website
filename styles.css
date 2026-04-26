@@ -553,11 +553,11 @@ h2 {
   inset: 0;
   z-index: 60;
   background: rgba(4, 8, 16, 0.9);
-  display: grid;
-  grid-template-columns: auto 1fr auto;
+  display: flex;
   align-items: center;
-  gap: 0.8rem;
-  padding: 1rem;
+  justify-content: center;
+  gap: 0.9rem;
+  padding: 1rem 0.8rem;
 }
 
 .gallery-lightbox[hidden] {
@@ -566,16 +566,21 @@ h2 {
 
 .gallery-lightbox-figure {
   margin: 0;
+  width: 94vw;
+  max-width: 1400px;
+  max-height: 88vh;
   border-radius: 12px;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.16);
   background: #070d19;
+  display: flex;
+  flex-direction: column;
 }
 
 .gallery-lightbox-figure img {
   display: block;
-  width: min(92vw, 1320px);
-  max-height: 84vh;
+  width: 100%;
+  height: min(80vh, 920px);
   object-fit: contain;
   background: #070d19;
 }
@@ -602,8 +607,8 @@ h2 {
 }
 
 .gallery-lightbox-nav {
-  width: 42px;
-  height: 56px;
+  width: 46px;
+  height: 62px;
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.2);
   background: rgba(255, 255, 255, 0.08);
@@ -828,19 +833,18 @@ footer a {
   }
 
   .gallery-lightbox {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto auto;
-    justify-items: center;
+    flex-direction: column;
+    justify-content: center;
   }
 
   .gallery-lightbox-nav {
-    width: 90%;
+    width: 94%;
     height: 34px;
   }
 
   .gallery-lightbox-figure img {
-    width: min(96vw, 96vw);
-    max-height: 74vh;
+    width: 100%;
+    height: min(72vh, 560px);
   }
 
   .matrix-controls {
