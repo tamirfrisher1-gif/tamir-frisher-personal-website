@@ -75,6 +75,14 @@ h1 {
   margin: 0 auto 1.6rem;
 }
 
+.hero-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+}
+
 .cta {
   display: inline-block;
   background: linear-gradient(90deg, var(--accent), #8cc5ff);
@@ -83,6 +91,12 @@ h1 {
   text-decoration: none;
   padding: 0.8rem 1.25rem;
   border-radius: 999px;
+}
+
+.cta-secondary {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid rgba(255, 255, 255, 0.5);
 }
 
 .container {
