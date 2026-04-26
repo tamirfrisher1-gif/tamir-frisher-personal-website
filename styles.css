@@ -529,9 +529,10 @@ a {
   font-family: "Antonio", "Inter", sans-serif;
   font-weight: 700;
   font-size: clamp(3.4rem, 6vw, 5.4rem);
-  line-height: 0.92;
+  line-height: 1.02;
   letter-spacing: -0.012em;
   color: var(--accent);
+  padding-bottom: 0.08em;
 }
 
 .proj-stat-unit {
