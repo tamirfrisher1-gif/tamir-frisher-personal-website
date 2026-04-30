@@ -220,6 +220,33 @@ h1 {
   margin-bottom: 1.2rem;
 }
 
+.hero-contact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.55rem;
+  align-items: center;
+  margin-bottom: 1.2rem;
+  padding: 0.6rem 0.8rem;
+  border: 1px solid var(--ink-line-strong);
+  border-radius: 8px;
+  background: rgba(11, 24, 52, 0.55);
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 0.76rem;
+  letter-spacing: 0.03em;
+  color: var(--ivory-mute);
+}
+
+.hero-contact a {
+  color: var(--gold);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.15s ease;
+}
+
+.hero-contact a:hover {
+  border-bottom-color: var(--gold);
+}
+
 .hero-ctas {
   display: flex;
   flex-wrap: wrap;
@@ -1151,6 +1178,10 @@ footer {
     margin-left: auto;
     margin-right: auto;
   }
+  .hero-contact {
+    justify-content: center;
+    text-align: center;
+  }
   .hero-ctas,
   .scoreboard {
     justify-content: center;
@@ -1192,6 +1223,13 @@ footer {
   .hero-portrait {
     width: 138px;
     height: 138px;
+  }
+  .hero-contact {
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+  .hero-contact span[aria-hidden="true"] {
+    display: none;
   }
   .scoreboard {
     flex-direction: column;
