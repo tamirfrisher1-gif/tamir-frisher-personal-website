@@ -1050,20 +1050,22 @@
           });
         };
 
-        const observer = new IntersectionObserver(
-          (entries) => {
-            const visible = entries
-              .filter((entry) => entry.isIntersecting)
-              .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-            if (visible?.target?.id) setActive(visible.target.id);
-          },
-          {
-            rootMargin: "-30% 0px -55% 0px",
-            threshold: [0.15, 0.35, 0.55],
-          }
-        );
+        const updateActiveByScroll = () => {
+          const navHeight =
+            document.querySelector(".sticky-nav")?.offsetHeight ?? 0;
+          const marker = window.scrollY + navHeight + 24;
+          let current = sections[0];
 
-        sections.forEach((section) => observer.observe(section));
+          sections.forEach((section) => {
+            if (section.offsetTop <= marker) current = section;
+          });
+
+          if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 4) {
+            current = sections[sections.length - 1];
+          }
+
+          if (current?.id) setActive(current.id);
+        };
 
         navLinks.forEach((link) => {
           link.addEventListener("click", () => {
@@ -1072,7 +1074,9 @@
           });
         });
 
-        setActive(sections[0].id);
+        window.addEventListener("scroll", updateActiveByScroll, { passive: true });
+        window.addEventListener("resize", updateActiveByScroll);
+        updateActiveByScroll();
       })();
     </script>
   </body>
