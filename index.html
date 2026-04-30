@@ -35,14 +35,6 @@
   </head>
   <body>
     <header class="hero">
-      <nav class="top-nav" aria-label="Primary">
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#experience">Experience</a>
-        <a href="#skills">Skills</a>
-        <a href="#contact">Contact</a>
-      </nav>
-
       <div class="hero-content">
         <div class="hero-portrait">
           <img
@@ -104,7 +96,6 @@
         <a href="#projects">Projects</a>
         <a href="#experience">Experience</a>
         <a href="#skills">Skills</a>
-        <a href="#contact">Contact</a>
       </nav>
 
       <section id="about" class="card">
@@ -1034,6 +1025,52 @@
         });
 
         render();
+      })();
+
+      (() => {
+        const navLinks = [...document.querySelectorAll(".sticky-nav a[href^='#']")];
+        if (!navLinks.length) return;
+
+        const sections = navLinks
+          .map((link) => document.querySelector(link.getAttribute("href")))
+          .filter(Boolean);
+        if (!sections.length) return;
+
+        const setActive = (id) => {
+          navLinks.forEach((link) => {
+            const isActive = link.getAttribute("href") === `#${id}`;
+            link.classList.toggle("active", isActive);
+            if (isActive) {
+              link.setAttribute("aria-current", "true");
+            } else {
+              link.removeAttribute("aria-current");
+            }
+          });
+        };
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            const visible = entries
+              .filter((entry) => entry.isIntersecting)
+              .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+            if (visible?.target?.id) setActive(visible.target.id);
+          },
+          {
+            rootMargin: "-30% 0px -55% 0px",
+            threshold: [0.15, 0.35, 0.55],
+          }
+        );
+
+        sections.forEach((section) => observer.observe(section));
+
+        navLinks.forEach((link) => {
+          link.addEventListener("click", () => {
+            const id = link.getAttribute("href").slice(1);
+            setActive(id);
+          });
+        });
+
+        setActive(sections[0].id);
       })();
     </script>
   </body>

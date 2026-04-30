@@ -108,54 +108,9 @@ time {
     var(--ink);
 }
 
-.top-nav {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1.4rem;
-  width: fit-content;
-  margin: 0 auto;
-  padding: 0.45rem 1.1rem;
-  border: 1px solid var(--ink-line-strong);
-  border-radius: var(--radius-pill);
-  background: rgba(11, 24, 52, 0.85);
-  backdrop-filter: blur(6px);
-}
-
-.top-nav a {
-  position: relative;
-  color: var(--ivory-soft);
-  text-decoration: none;
-  font-size: 0.88rem;
-  font-weight: 500;
-  letter-spacing: 0.02em;
-  padding-bottom: 2px;
-  transition: color 0.18s ease;
-}
-
-.top-nav a:hover {
-  color: var(--gold);
-}
-
-.top-nav a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -2px;
-  height: 1px;
-  background: var(--gold);
-  transform: scaleX(0);
-  transition: transform 0.2s ease;
-}
-
-.top-nav a:hover::after {
-  transform: scaleX(1);
-}
-
 .hero-content {
   max-width: 1080px;
-  margin: 3.2rem auto 0;
+  margin: 4.6rem auto 0;
   display: grid;
   grid-template-columns: 220px 1fr;
   gap: 2.4rem;
@@ -239,12 +194,7 @@ h1 {
 .hero-contact a {
   color: var(--gold);
   text-decoration: none;
-  border-bottom: 1px solid transparent;
-  transition: border-color 0.15s ease;
-}
-
-.hero-contact a:hover {
-  border-bottom-color: var(--gold);
+  border-bottom: none;
 }
 
 .hero-ctas {
@@ -344,9 +294,11 @@ h1 {
 }
 
 .sticky-nav {
-  position: sticky;
-  top: 0.45rem;
-  z-index: 8;
+  position: fixed;
+  top: 0.9rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 30;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -373,6 +325,12 @@ h1 {
 .sticky-nav a:hover {
   color: var(--gold);
   background: var(--gold-wash);
+}
+
+.sticky-nav a.active {
+  color: var(--ink);
+  background: var(--gold);
+  box-shadow: 0 0 0 1px rgba(255, 199, 44, 0.35);
 }
 
 .card {
@@ -1211,14 +1169,6 @@ footer {
 @media (max-width: 640px) {
   .hero {
     padding: 1.2rem 1rem 2rem;
-  }
-  .top-nav {
-    width: 100%;
-    border-radius: 10px;
-    gap: 0.8rem 1rem;
-  }
-  .top-nav a {
-    font-size: 0.85rem;
   }
   .hero-portrait {
     width: 138px;
