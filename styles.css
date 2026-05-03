@@ -440,6 +440,47 @@ a {
   opacity: 0.82;
 }
 
+.coursework-label-site {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ivory-mute);
+  margin-top: 0.7rem;
+  margin-bottom: 0.45rem;
+}
+
+.coursework-chips {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  padding: 0;
+}
+
+.coursework-chips li {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: rgba(255, 199, 44, 0.06);
+  border: 1px solid var(--gold-line);
+  border-radius: var(--radius-pill);
+  padding: 0.28rem 0.72rem;
+}
+
+.course-chip-name {
+  font-size: 0.78rem;
+  color: var(--ivory-soft);
+}
+
+.course-chip-score {
+  font-size: 0.78rem;
+  font-weight: 700;
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  color: var(--gold);
+}
+
 /* Skills tiered */
 
 .skill-tier {
