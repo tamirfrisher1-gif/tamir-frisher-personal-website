@@ -432,6 +432,14 @@ a {
   margin-bottom: 0.4rem;
 }
 
+.timeline-detail {
+  margin-top: 0.45rem;
+  font-size: 0.82rem;
+  color: var(--ivory-soft);
+  line-height: 1.55;
+  opacity: 0.82;
+}
+
 /* Skills tiered */
 
 .skill-tier {
