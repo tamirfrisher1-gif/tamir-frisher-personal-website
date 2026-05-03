@@ -453,20 +453,27 @@ a {
 
 .coursework-chips {
   list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.55rem 0.6rem;
   padding: 0;
 }
 
 .coursework-chips li {
   display: flex;
   align-items: center;
-  gap: 0.45rem;
+  justify-content: space-between;
+  gap: 0.5rem;
   background: rgba(255, 199, 44, 0.06);
   border: 1px solid var(--gold-line);
   border-radius: var(--radius-pill);
-  padding: 0.28rem 0.72rem;
+  padding: 0.35rem 0.85rem;
+}
+
+@media (max-width: 600px) {
+  .coursework-chips {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 .coursework-chips .course-chip-name {
